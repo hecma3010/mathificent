@@ -1,6 +1,16 @@
 import Footer from "./Footer.jsx";
 
 function App() {
+  const date = new Date();
+  const currentHour = date.getHours();
+  let greeting;
+  if (currentHour < 12) {
+    greeting = 'Good morning';
+  } else if (currentHour < 18) {
+    greeting = 'Good afternoon';
+  } else {
+    greeting = 'Good evening';
+  }
   return (
     <>
       <header>
@@ -32,7 +42,9 @@ function App() {
           </div>
         </nav>
       </header>
-      <h1 className="text-center">Mathificent</h1>
+      <h1 className="text-center">Mathificent!</h1>
+      <p className="text-center">{greeting}, ready to practice?</p>
+      <p className="text-center">{currentHour < 18 ? 'Plenty of time to practice today!':'One last round before bed?'}</p>
       <Footer />
     </>
   );
