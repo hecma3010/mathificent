@@ -1,6 +1,6 @@
-import Footer from "./Footer.jsx";
-import Header from "./Header.jsx";
-import Main from "./Main.jsx";
+import Footer from "../components/Footer";
+import Header from "../components/Header.jsx";
+import Main from "../components/Main.jsx";
 
 function App() {
   const date = new Date();
