@@ -1,5 +1,6 @@
 import Footer from "./Footer.jsx";
-import Header from "./header.jsx";
+import Header from "./Header.jsx";
+import Main from "./Main.jsx";
 
 function App() {
   const date = new Date();
@@ -22,6 +23,7 @@ function App() {
           ? "Plenty of time to practice today!"
           : "One last round before bed?"}
       </p>
+      <Main />
       <Footer />
     </>
   );
