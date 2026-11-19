@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-function SelectInput(props) {
-  const selectOptions = props.values.map((value) => (
+function SelectInput({ label, id, values }) {
+  const selectOptions = values.map((value) => (
     <option key={value} value={value}>
       {value}
     </option>
@@ -9,10 +9,10 @@ function SelectInput(props) {
     <Fragment>
       <div>
         <div className="mb-3">
-          <label htmlFor={props.id} className="form-label">
-            {props.label}
+          <label htmlFor={id} className="form-label">
+            {label}
           </label>
-          <select id={props.id} className="form-select">
+          <select id={id} className="form-select">
             {selectOptions}
           </select>
         </div>
