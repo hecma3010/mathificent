@@ -1,7 +1,9 @@
 function PlayButton() {
   return (
     <>
-      <button>Play!</button>
+      <button type="button" className="btn">
+        Play!
+      </button>
     </>
   );
 }

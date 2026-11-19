@@ -11,7 +11,7 @@ function Main() {
     <>
       <main>
         <SelectInput label="Operation" id="operation" values={operations} />
-        <SelectInput label="Maximum number" id="max-number" values={numbers} />
+        <SelectInput label="Maximum Number" id="max-number" values={numbers} />
         <PlayButton />
       </main>
     </>

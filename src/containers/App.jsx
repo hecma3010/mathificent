@@ -1,4 +1,4 @@
-import Footer from "../components/Footer";
+import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 import Main from "../components/Main.jsx";
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Header />
-      <h1 className="text-center">Mathificent!</h1>
+      <h1 className="text-center">Mathificent</h1>
       <p className="text-center">{greeting}, ready to practice?</p>
       <p className="text-center">
         {currentHour < 18
