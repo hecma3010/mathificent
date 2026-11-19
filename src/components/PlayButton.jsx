@@ -1,7 +1,7 @@
 function PlayButton() {
   return (
     <>
-      <button type="button" className="btn">
+      <button type="button" className="btn btn-success">
         Play!
       </button>
     </>
