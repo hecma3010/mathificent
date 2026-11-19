@@ -8,13 +8,11 @@ function Main() {
     numbers.push(i);
   }
   return (
-    <>
-      <main>
-        <SelectInput label="Operation" id="operation" values={operations} />
-        <SelectInput label="Maximum Number" id="max-number" values={numbers} />
-        <PlayButton />
-      </main>
-    </>
+    <main>
+      <SelectInput label="Operation" id="operation" values={operations} />
+      <SelectInput label="Maximum Number" id="max-number" values={numbers} />
+      <PlayButton />
+    </main>
   );
 }
 

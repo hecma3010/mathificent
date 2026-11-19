@@ -1,10 +1,8 @@
 function PlayButton() {
   return (
-    <>
-      <button type="button" className="btn btn-success">
-        Play!
-      </button>
-    </>
+    <button type="button" className="btn btn-success">
+      Play!
+    </button>
   );
 }
 
