@@ -1,8 +1,10 @@
+import { Link } from "react-router";
+
 function PlayButton() {
   return (
-    <button type="button" className="btn btn-success">
+    <Link to="/play" className="btn btn-success">
       Play!
-    </button>
+    </Link>
   );
 }
 
