@@ -1,8 +1,12 @@
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 import Main from "../components/Main.jsx";
+import Game from "../components/Game.jsx";
+import { useState } from "react";
 
 function App() {
+  const [operation, setOperation] = useState("x");
+  const [maxNumber, setMaxNumber] = useState(10);
   const date = new Date();
   const currentHour = date.getHours();
   let greeting;
@@ -23,7 +27,13 @@ function App() {
           ? "Plenty of time to practice today!"
           : "One last round before bed?"}
       </p>
-      <Main />
+      <Main
+        operation={operation}
+        setOperation={setOperation}
+        maxNumber={maxNumber}
+        setMaxNumber={setMaxNumber}
+      />
+      <Game operation={operation} maxNumber={maxNumber} />
       <Footer />
     </>
   );
