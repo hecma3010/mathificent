@@ -1,8 +1,9 @@
+import { useState } from "react";
+import { Routes, Route } from "react-router";
 import Footer from "../components/Footer.jsx";
 import Header from "../components/Header.jsx";
 import Main from "../components/Main.jsx";
 import Game from "../components/Game.jsx";
-import { useState } from "react";
 
 function App() {
   const [operation, setOperation] = useState("x");
@@ -27,13 +28,23 @@ function App() {
           ? "Plenty of time to practice today!"
           : "One last round before bed?"}
       </p>
-      <Main
-        operation={operation}
-        setOperation={setOperation}
-        maxNumber={maxNumber}
-        setMaxNumber={setMaxNumber}
-      />
-      <Game operation={operation} maxNumber={maxNumber} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Main
+              operation={operation}
+              setOperation={setOperation}
+              maxNumber={maxNumber}
+              setMaxNumber={setMaxNumber}
+            />
+          }
+        />
+        <route
+          path="/play"
+          element={<Game operation={operation} maxNumber={maxNumber} />}
+        />
+      </Routes>
       <Footer />
     </>
   );
