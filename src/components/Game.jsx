@@ -4,7 +4,6 @@ function Game({ operation, maxNumber }) {
       <p>
         Operation is <strong>{operation}</strong>.
       </p>
-      <br />
       <p>
         Maximum number is <strong>{maxNumber}</strong>.
       </p>
