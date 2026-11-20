@@ -2,6 +2,16 @@ import SelectInput from "./SelectInput.jsx";
 import PlayButton from "./PlayButton.jsx";
 
 function Main({ operation, setOperation, maxNumber, setMaxNumber }) {
+  const date = new Date();
+  const currentHour = date.getHours();
+  let greeting;
+  if (currentHour < 12) {
+    greeting = "Good morning";
+  } else if (currentHour < 18) {
+    greeting = "Good afternoon";
+  } else {
+    greeting = "Good evening";
+  }
   const operations = ["+", "-", "x", "/"];
   const numbers = [];
   for (let i = 2; i <= 100; i++) {
@@ -9,6 +19,13 @@ function Main({ operation, setOperation, maxNumber, setMaxNumber }) {
   }
   return (
     <main>
+      <h1 className="text-center">Mathificent</h1>
+      <p className="text-center">{greeting}, ready to practice?</p>
+      <p className="text-center">
+        {currentHour < 18
+          ? "Plenty of time to practice today!"
+          : "One last round before bed?"}
+      </p>
       <SelectInput
         label="Operation"
         id="operation"
