@@ -1,7 +1,7 @@
 import SelectInput from "./SelectInput.jsx";
 import PlayButton from "./PlayButton.jsx";
 
-function Main() {
+function Main({ operation, setOperation, maxNumber, setMaxNumber }) {
   const operations = ["+", "-", "x", "/"];
   const numbers = [];
   for (let i = 2; i <= 100; i++) {
@@ -9,8 +9,20 @@ function Main() {
   }
   return (
     <main>
-      <SelectInput label="Operation" id="operation" values={operations} />
-      <SelectInput label="Maximum Number" id="max-number" values={numbers} />
+      <SelectInput
+        label="Operation"
+        id="operation"
+        values={operations}
+        currentValue={operation}
+        setCurrentValue={setOperation}
+      />
+      <SelectInput
+        label="Maximum Number"
+        id="max-number"
+        values={numbers}
+        currentValue={maxNumber}
+        setCurrentValue={setMaxNumber}
+      />
       <PlayButton />
     </main>
   );
