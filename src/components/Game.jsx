@@ -10,4 +10,5 @@ function Game({ operation, maxNumber }) {
     </div>
   );
 }
+
 export default Game;
