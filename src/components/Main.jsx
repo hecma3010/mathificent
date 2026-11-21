@@ -1,5 +1,6 @@
 import SelectInput from "./SelectInput.jsx";
 import PlayButton from "./PlayButton.jsx";
+import "./Main.css";
 
 function Main({ operation, setOperation, maxNumber, setMaxNumber }) {
   const date = new Date();
@@ -26,21 +27,27 @@ function Main({ operation, setOperation, maxNumber, setMaxNumber }) {
           ? "Plenty of time to practice today!"
           : "One last round before bed?"}
       </p>
-      <SelectInput
-        label="Operation"
-        id="operation"
-        values={operations}
-        currentValue={operation}
-        setCurrentValue={setOperation}
-      />
-      <SelectInput
-        label="Maximum Number"
-        id="max-number"
-        values={numbers}
-        currentValue={maxNumber}
-        setCurrentValue={setMaxNumber}
-      />
-      <PlayButton />
+      <div className="row mx-1 my-3">
+        <SelectInput
+          label="Operation"
+          id="operation"
+          values={operations}
+          currentValue={operation}
+          setCurrentValue={setOperation}
+        />
+      </div>
+      <div className="row mx-1 my-3">
+        <SelectInput
+          label="Maximum Number"
+          id="max-number"
+          values={numbers}
+          currentValue={maxNumber}
+          setCurrentValue={setMaxNumber}
+        />
+      </div>
+      <div className="row mx-1 my-3">
+        <PlayButton />
+      </div>
     </main>
   );
 }
