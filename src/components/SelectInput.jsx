@@ -5,21 +5,19 @@ function SelectInput({ label, id, values, currentValue, setCurrentValue }) {
     </option>
   ));
   return (
-    <div className="row">
-      <>
-        <label htmlFor={id} className="col fw-bold">
-          {label}
-        </label>
-        <select
-          id={id}
-          className="col form-select"
-          defaultValue={currentValue}
-          onChange={(e) => setCurrentValue(e.target.value)}
-        >
-          {selectOptions}
-        </select>
-      </>
-    </div>
+    <>
+      <label htmlFor={id} className="col fw-bold">
+        {label}
+      </label>
+      <select
+        id={id}
+        className="col form-select"
+        defaultValue={currentValue}
+        onChange={(e) => setCurrentValue(e.target.value)}
+      >
+        {selectOptions}
+      </select>
+    </>
   );
 }
 
