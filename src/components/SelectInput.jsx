@@ -1,7 +1,7 @@
 function SelectInput({ label, id, values, currentValue, setCurrentValue }) {
   const selectOptions = values.map((value) => (
-    <option key={value} value={value}>
-      {value}
+    <option key={value[0]} value={value[1]}>
+      {value[0]}
     </option>
   ));
   return (

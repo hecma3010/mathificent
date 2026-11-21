@@ -13,10 +13,15 @@ function Main({ operation, setOperation, maxNumber, setMaxNumber }) {
   } else {
     greeting = "Good evening";
   }
-  const operations = ["+", "-", "x", "/"];
+  const operations = [
+    ["Addition", "+"],
+    ["Subtraction", "-"],
+    ["Multiplication", "x"],
+    ["Division", "/"],
+  ];
   const numbers = [];
   for (let i = 2; i <= 100; i++) {
-    numbers.push(i);
+    numbers.push([i, i]);
   }
   return (
     <main>
