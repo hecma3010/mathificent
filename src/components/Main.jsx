@@ -47,7 +47,7 @@ function Main({ operation, setOperation, maxNumber, setMaxNumber }) {
           id="max-number"
           values={numbers}
           currentValue={maxNumber}
-          setCurrentValue={setMaxNumber}
+          setCurrentValue={(value) => setMaxNumber(Number(value))}
         />
       </div>
       <div className="row mx-1 my-3">
