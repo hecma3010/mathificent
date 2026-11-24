@@ -1,6 +1,10 @@
-function NumberButton({ value }) {
+function NumberButton({ value, handleClick }) {
   return (
-    <button type="button" className="btn btn-primary">
+    <button
+      type="button"
+      className="btn btn-primary"
+      onClick={() => handleClick(value)}
+    >
       {value}
     </button>
   );

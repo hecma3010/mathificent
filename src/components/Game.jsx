@@ -30,9 +30,13 @@ function Game({ operation, maxNumber }) {
     return { num1, num2 };
   }
   const question = `${operands.num1} ${operation} ${operands.num2}`;
+  const [userAnswer, setUserAnswer] = useState("");
+  function appendToAnswer(num) {
+    setUserAnswer(String(Number(userAnswer + num)));
+  }
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const numberButtons = numbers.map((number) => (
-    <NumberButton key={number} value={number} />
+    <NumberButton key={number} value={number} handleClick={appendToAnswer} />
   ));
   return (
     <main className="text-center" id="game-container">
@@ -45,12 +49,12 @@ function Game({ operation, maxNumber }) {
         </div>
       </div>
       <div className="row text-secondary my-2" id="equation">
-        <Equation question={question} answer="2" />
+        <Equation question={question} answer={userAnswer} />
       </div>
       <div className="row" id="buttons">
         <div className="col">
           {numberButtons}
-          <ClearButton />
+          <ClearButton handleClick={setUserAnswer} />
         </div>
       </div>
     </main>
