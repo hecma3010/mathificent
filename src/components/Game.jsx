@@ -9,8 +9,28 @@ import ClearButton from "./ClearButton.jsx";
 import "./Game.css";
 
 function Game({ operation, maxNumber }) {
+  // Variables and constants
   let randNums = getRandNumbers(operation, 0, maxNumber);
+  const gameLength = 60;
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+  // States
   const [operands, setOperands] = useState(randNums);
+  const [userAnswer, setUserAnswer] = useState("");
+  const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(gameLength);
+  const [answered, setAnswered] = useState(false);
+
+  // Derived values
+  const question = `${operands.num1} ${operation} ${operands.num2}`;
+  const equationClass = answered
+    ? "row my-2 text-primary fade"
+    : "row my-2 text-secondary";
+  const numberButtons = numbers.map((number) => (
+    <NumberButton key={number} value={number} handleClick={appendToAnswer} />
+  ));
+
+  // Functions block
   function getRandNumbers(operator, low, high) {
     let num1 = randInt(low, high);
     let num2 = randInt(low, high);
@@ -23,6 +43,7 @@ function Game({ operation, maxNumber }) {
     }
 
     if (operator === "/") {
+      // No division by zero
       if (num2 === 0) {
         num2 = randInt(1, high);
       }
@@ -30,17 +51,13 @@ function Game({ operation, maxNumber }) {
     }
     return { num1, num2 };
   }
-  const question = `${operands.num1} ${operation} ${operands.num2}`;
-  const [userAnswer, setUserAnswer] = useState("");
+
   function appendToAnswer(num) {
     setUserAnswer(String(Number(userAnswer + num)));
   }
-  const [score, setScore] = useState(0);
-  const gameLength = 60;
-  const [timeLeft, setTimeLeft] = useState(gameLength);
-  const [answered, setAnswered] = useState(false);
+
   function checkAnswer(userAnswer) {
-    if (isNaN(userAnswer)) return false; // User hasn't answered
+    if (isNaN(userAnswer)) return false;
 
     let correctAnswer;
     switch (operation) {
@@ -53,34 +70,32 @@ function Game({ operation, maxNumber }) {
       case "x":
         correctAnswer = operands.num1 * operands.num2;
         break;
-      default: // division
+      default: // Division
         correctAnswer = operands.num1 / operands.num2;
     }
     return parseInt(userAnswer) === correctAnswer;
   }
+
   function newQuestion() {
     setUserAnswer("");
     setAnswered(false);
     randNums = getRandNumbers(operation, 0, maxNumber);
     setOperands(randNums);
   }
+
   function restart() {
     setTimeLeft(gameLength);
     setScore(0);
     newQuestion();
   }
+
+  // Logic and returns
   if (!answered && checkAnswer(userAnswer)) {
     setAnswered(true);
     setScore(score + 1);
     setTimeout(newQuestion, 300);
   }
-  const equationClass = answered
-    ? "row my-2 text-primary fade"
-    : "row my-2 text-secondary";
-  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-  const numberButtons = numbers.map((number) => (
-    <NumberButton key={number} value={number} handleClick={appendToAnswer} />
-  ));
+
   if (timeLeft === 0) {
     return (
       <div className="text-center" id="game-container">
@@ -101,6 +116,7 @@ function Game({ operation, maxNumber }) {
       </div>
     );
   }
+
   return (
     <main className="text-center" id="game-container">
       <div className="row border-bottom" style={{ fontSize: "1.5em" }}>
