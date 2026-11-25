@@ -8,9 +8,9 @@ import ClearButton from "./ClearButton.jsx";
 import "./Game.css";
 
 function Game({ operation, maxNumber }) {
-  let randNums = getRandNums(operation, 0, maxNumber);
+  let randNums = getRandNumbers(operation, 0, maxNumber);
   const [operands, setOperands] = useState(randNums);
-  function getRandNums(operator, low, high) {
+  function getRandNumbers(operator, low, high) {
     let num1 = randInt(low, high);
     let num2 = randInt(low, high);
     const numHigh = Math.max(num1, num2);
@@ -34,6 +34,41 @@ function Game({ operation, maxNumber }) {
   function appendToAnswer(num) {
     setUserAnswer(String(Number(userAnswer + num)));
   }
+  const [score, setScore] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  function checkAnswer(userAnswer) {
+    if (isNaN(userAnswer)) return false; // User hasn't answered
+
+    let correctAnswer;
+    switch (operation) {
+      case "+":
+        correctAnswer = operands.num1 + operands.num2;
+        break;
+      case "-":
+        correctAnswer = operands.num1 - operands.num2;
+        break;
+      case "x":
+        correctAnswer = operands.num1 * operands.num2;
+        break;
+      default: // division
+        correctAnswer = operands.num1 / operands.num2;
+    }
+    return parseInt(userAnswer) === correctAnswer;
+  }
+  function newQuestion() {
+    setUserAnswer("");
+    setAnswered(false);
+    randNums = getRandNumbers(operation, 0, maxNumber);
+    setOperands(randNums);
+  }
+  if (!answered && checkAnswer(userAnswer)) {
+    setAnswered(true);
+    setScore(score + 1);
+    setTimeout(newQuestion, 300);
+  }
+  const equationClass = answered
+    ? "row my-2 text-primary fade"
+    : "row my-2 text-secondary";
   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
   const numberButtons = numbers.map((number) => (
     <NumberButton key={number} value={number} handleClick={appendToAnswer} />
@@ -42,13 +77,13 @@ function Game({ operation, maxNumber }) {
     <main className="text-center" id="game-container">
       <div className="row border-bottom" style={{ fontSize: "1.5em" }}>
         <div className="col px-3 text-start">
-          <Score score="0" />
+          <Score score={score} />
         </div>
         <div className="col px-3 text-end">
           <Timer timeLeft="60" />
         </div>
       </div>
-      <div className="row text-secondary my-2" id="equation">
+      <div className={equationClass} id="equation">
         <Equation question={question} answer={userAnswer} />
       </div>
       <div className="row" id="buttons">
