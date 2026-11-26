@@ -1,8 +1,6 @@
 # Mathificent
 
-What it is: a timed math-facts practice game
-
-Author: Hector Martinez (hecma3010)
+Timed math-facts practice game
 
 ## Features
 
@@ -16,28 +14,17 @@ Author: Hector Martinez (hecma3010)
 
 ## Tech stack
 
-- React 19
-- Vite
-- React Router
-- Bootstrap 5.3
-- ESLint + Prettier
+- React 19.x
+- Vite 8.x
+- React Router 8.x
+- Bootstrap 5.x
+- ESLint 10.x
 
 ## Running locally
 
-- npm install
-- npm run dev
-- Open the URL printed by Vite
+```bash
+npm install
+npm run dev
+```
 
-## Demo
-
-Not yet deployed. Leave this section out for now; we add it once the site is live.
-
-## Writing rules
-
-- First line: # Mathificent, followed by one sentence saying what it is
-- Present tense, third person: "generates random equations", not "I made a game that..."
-- No self-promotion adjectives: no amazing, powerful, awesome
-
-## Description 
-
-Math facts practice game built with React 19 and Vite
+Open the URL printed by Vite
