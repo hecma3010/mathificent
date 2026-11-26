@@ -1,16 +1,43 @@
-# React + Vite
+# Mathificent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+What it is: a timed math-facts practice game
 
-Currently, two official plugins are available:
+Author: Hector Martinez (hecma3010)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- The player selects the operation and the maximum number before starting
+- Each round generates an equation with random operands within that range
+- Answers are entered with an on-screen number pad, not the physical keyboard
+- A Clear button wipes the current answer
+- A correct answer increases the score and the next equation loads automatically after a short delay
+- A countdown timer runs for the length of the game
+- When the timer reaches zero, a Time's Up screen shows the final score and a restart option
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+- React 19
+- Vite
+- React Router
+- Bootstrap 5.3
+- ESLint + Prettier
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Running locally
+
+- npm install
+- npm run dev
+- Open the URL printed by Vite
+
+## Demo
+
+Not yet deployed. Leave this section out for now; we add it once the site is live.
+
+## Writing rules
+
+- First line: # Mathificent, followed by one sentence saying what it is
+- Present tense, third person: "generates random equations", not "I made a game that..."
+- No self-promotion adjectives: no amazing, powerful, awesome
+
+## Description 
+
+Math facts practice game built with React 19 and Vite
